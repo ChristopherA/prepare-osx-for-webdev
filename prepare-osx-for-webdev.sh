@@ -25,6 +25,10 @@ SCRIPT_DEBUG=true
 
 BIN="/usr/local/bin"
 
+# Ask for the administrator password upfront
+echo -e "\nUpdating OSX system software and developer tools. Your administrator password will be required. Only enter password if you trust the source of this script!"
+sudo -v
+
 # What kind of OS are we running?
 
 echo -e "\nChecking System -- \c"
@@ -43,23 +47,14 @@ if [[ `uname` == 'Darwin' ]]; then
   if [ "$OSX_VERS_FIRST" -ge 9 ];
   then
 
-    # Ask for the administrator password upfront
-    echo -e "\nUpdating OSX system software and developer tools. Your administrator password will be required. Only enter password if you trust the source of this script!"
-    sudo -v
-
-    # Keep-alive: update existing `sudo` time stamp until script has finished
-    # while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
     # Define some variables...
     tmp_file=".softwareupdate.$$"
     reboot=""
     found_updates=""
 
     echo -e "\n  Checking Apple Software Update Server for available updates,\n  Please be patient. This process may take a while to complete... \c"
-    echo "(before software update -l)"
-    sudo /usr/sbin/softwareupdate -l # &> $tmp_file
+    sudo /usr/sbin/softwareupdate -l &> $tmp_file
     wait
-    echo "(wait after software update -l)"
 
     echo -e "\n"
     reboot=$(/usr/bin/grep "restart" $tmp_file | /usr/bin/wc -l | xargs )
