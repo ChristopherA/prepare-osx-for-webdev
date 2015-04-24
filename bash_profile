@@ -25,9 +25,6 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 ### as per http://antesarkkinen.com/blog/add-colors-to-os-x-terminal-including-ls-and-nano/
 # export LSCOLORS=ExFxBxDxCxegedabagacad
 
-## ll
-alias ll='ls -FGal'
-
 ## grep colors to highlight matches
 export GREP_OPTIONS='--color=auto'
 
