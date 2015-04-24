@@ -56,8 +56,10 @@ if [[ `uname` == 'Darwin' ]]; then
     found_updates=""
 
     echo -e "\n  Checking Apple Software Update Server for available updates,\n  Please be patient. This process may take a while to complete... \c"
-    sudo /usr/sbin/softwareupdate -l &> $tmp_file
+    echo "(before software update -l)"
+    sudo /usr/sbin/softwareupdate -l # &> $tmp_file
     wait
+    echo "(wait after software update -l)"
 
     echo -e "\n"
     reboot=$(/usr/bin/grep "restart" $tmp_file | /usr/bin/wc -l | xargs )
