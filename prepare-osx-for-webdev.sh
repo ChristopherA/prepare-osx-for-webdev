@@ -77,7 +77,7 @@ if [[ `uname` == 'Darwin' ]]; then
         if [ $reboot = "0" ]
         then
           echo "    Updates found, but no reboot required. Installing now."
-          echo "    Please be patient. This process may take a while to complete."
+          echo "    Please be patient. This process may take a while to complete.\n"
           sudo /usr/sbin/softwareupdate -ia # &> $tmp_file
           wait
           echo -e "\n  Finished with all Apple Software Update installations."
