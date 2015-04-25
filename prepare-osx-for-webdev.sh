@@ -29,9 +29,6 @@ BIN="/usr/local/bin"
 echo -e "\nUpdating OSX system software and developer tools.\nYour administrator password will be required. \nOnly enter password if you trust the source of this script!"
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until script has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 # What kind of OS are we running?
 
 echo -e "\nChecking System -- \c"
