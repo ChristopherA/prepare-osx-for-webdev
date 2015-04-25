@@ -361,15 +361,14 @@ if [[ `uname` == 'Darwin' ]]; then
     # Install Solarized Terminal Settings
 
     # Use a modified version of the Solarized Dark theme by default in Terminal.app
-    TERM_PROFILE='solarized-dark';
     CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
-    if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
-      wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/${TERM_PROFILE}.terminal
-    	open "${HOME}/${TERM_PROFILE}.terminal";
+    if [ "${CURRENT_PROFILE}" != "solarized-dark" ]; then
+      wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/solarized-dark.terminal
+    	open "~/solarized-dark.terminal";
     	sleep 5; # Wait a bit to make sure the theme is loaded
-    	defaults write com.apple.terminal 'Default Window Settings' -string "${TERM_PROFILE}";
-    	defaults write com.apple.terminal 'Startup Window Settings' -string "${TERM_PROFILE}";
-      rm "${HOME}/${TERM_PROFILE}.terminal";
+    	defaults write com.apple.terminal 'Default Window Settings' -string "solarized-dark";
+    	defaults write com.apple.terminal 'Startup Window Settings' -string "solarized-dark";
+      rm "~/solarized-dark.terminal";
     fi;
 
     if [ ! -f "~/.bash_profile" ]; then
