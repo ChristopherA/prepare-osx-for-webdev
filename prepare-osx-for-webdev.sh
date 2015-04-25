@@ -44,10 +44,49 @@ if [[ `uname` == 'Darwin' ]]; then
   then
 
     # Warn the user before running this script
-    echo -e "\nUpdating OSX system software and developer tools.\nYour administrator password will be required. \nOnly enter password if you trust the source of this script!"
+
+    warning=$(osascript -e 'tell application "System Events" to set myReply to button returned of (display dialog "This script will update your OSX system and prepare it for web development. Your administrator password will be required. Only enter the password if you trust the source of this script!" with title "Prepare OSX for Web Development" with icon caution default button 2 buttons {"Abort", "Continue"})')
+    if [[ $warning = "Continue" ]]; then
+      echo 'User selected "Continue" button...';
+    elif [[ $warning = "Abort" ]]; then
+      echo 'User selected "Abort" button, exiting script!';
+      exit 1;
+    else
+      echo "$warning was selected, error!";
+      exit 1;
+    fi
 
     # Ask for the administrator password upfront
-    sudo -v
+
+    while :; do # Loop until valid input is entered or Cancel is pressed.
+        adminpwd=$(osascript -e 'Tell application "System Events" to display dialog "Enter '$USER'’s administrator password:" with title "Administrator Password" with hidden answer default answer ""' -e 'text returned of result' 2>/dev/null)
+        if (( $? )); then echo 'User selected "Cancel" button, exiting script!'; exit 1; fi  # Abort, if user pressed Cancel.
+        name=$(echo -n "$adminpwd" | sed 's/^ *//' | sed 's/ *$//')  # Trim leading and trailing whitespace.
+        if [[ -z "$adminpwd" ]]; then
+            # The user left the password blank.
+            osascript -e 'Tell application "System Events" to display alert "You must enter a non-blank password; please try again." as warning' >/dev/null;
+            # Continue loop to prompt again.
+        else
+            echo -e "$adminpwd\n" | sudo -S echo ""
+            result=$(sudo -n uptime 2>&1|grep "load"|wc -l);
+            if [[ $result = "       1" ]]; then
+              echo "Admin password is correct...";
+              # Valid password: exit loop and continue.
+              unset adminpwd;
+              break;
+            else
+              # The admin password is incorect.
+              unset adminpwd;
+              echo "The admin password was incorrect!";
+              osascript -e 'Tell application "System Events" to display alert "The admin password was incorrect!" as warning' >/dev/null;
+              # Continue loop to prompt again.
+            fi
+        fi
+    done
+
+    # Activate Mac Terminal Window
+
+    osascript -e 'tell application "Terminal" to activate'
 
     # Define some variables...
     tmp_file=".softwareupdate.$$"
