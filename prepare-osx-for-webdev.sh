@@ -149,7 +149,7 @@ if [[ `uname` == 'Darwin' ]]; then
       echo "    Apple Command Line Utilities not installed. Installing..."
       echo "    Please be patient. This process may take a while to complete."
 
-      # Tell software update to also install OXS Command Line Tools without prompt
+      # Tell software update to also install OSX Command Line Tools without prompt
       ## As per https://sector7g.be/posts/installing-xcode-command-line-tools-through-terminal-without-any-user-interaction
 
       touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
@@ -266,7 +266,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Install web development code
     # brew install python # use built-in python for now
-    brew install node
+    brew install node # https://nodejs.org/
 
     if $SCRIPT_DEBUG; then echo "...Installing Cask."; fi
 
@@ -375,20 +375,28 @@ if [[ `uname` == 'Darwin' ]]; then
     if [ ! -f "~/.bash_profile" ]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/bash_profile;
       mv ./bash_profile ~/.bash_profile;
+      echo "New ~/.bash_profile created.";
     fi
 
     if [ ! -f "~/.gitignore_global" ]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/gitignore_global;
       mv ./gitignore_global ~/.gitignore_global;
+      echo "New ~/.gitignore_global created.";
     fi
 
     if [ ! -f "~/.bash_profile.local" ]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/bash_profile.local;
       mv ./bash_profile.local ~/.bash_profile.local;
-      osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…"' >/dev/null;
+      echo "New ~/.bash_profile.local created.";
+
+      while :; do
+        result=$(osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…"');
+        if (( $? )); then break;
+      done
       atom ~/.bash_profile.local;
     fi
 
+    osascript -e 'Tell application "System Events" to activate' >/dev/null
     osascript -e 'Tell application "System Events" to display alert "Installation is complete!' >/dev/null
 
  else
