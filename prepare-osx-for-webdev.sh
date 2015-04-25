@@ -385,8 +385,8 @@ if [[ `uname` == 'Darwin' ]]; then
     if [ ! -f "~/.bash_profile.local" ]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/bash_profile.local;
       mv ./bash_profile.local ~/.bash_profile.local;
-      osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…"' >/dev/null
-      atom ~/.bash_profile.local
+      osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…"' >/dev/null;
+      atom ~/.bash_profile.local;
     fi
 
     osascript -e 'Tell application "System Events" to display alert "Installation is complete!' >/dev/null
