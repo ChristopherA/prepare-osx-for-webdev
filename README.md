@@ -1,14 +1,14 @@
 Prepare OSX for WebDev
 ======================
 
-Simple script to prepare OSX for web development and command-line tools
+Simple script to prepare OSX for web development and command-line tools:
     https://github.com/ChristopherA/prepare-osx-for-webdev
 
-Originally based on Christopher Allen's dotfiles
+Originally based on Christopher Allen's dotfiles:
     https://github.com/ChristopherA/dotfiles/blob/master/install/allosxupdates.sh
 
 Modified to only install basic command-line utilities and webdev files,
-such as python and node, without dependencies on other install files
+such as node, without dependencies on other install files
 
 Execute on a new machine via:
 

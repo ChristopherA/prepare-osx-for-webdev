@@ -223,7 +223,7 @@ if [[ `uname` == 'Darwin' ]]; then
     brew install grc # http://korpus.juls.savba.sk/~garabik/software/grc.html
 
     # Install web development code
-    brew install python
+    # brew install python # use built-in python for now
     brew install node
 
     if $SCRIPT_DEBUG; then echo "...Installing Cask."; fi
