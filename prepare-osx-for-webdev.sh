@@ -372,19 +372,19 @@ if [[ `uname` == 'Darwin' ]]; then
       rm "${HOME}/${TERM_PROFILE}.terminal";
     fi;
 
-    if [ -f "${HOME}/.bash_profile" ]; then
+    if [ ! -f "~/.bash_profile" ]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/bash_profile
-      mv bash_profile ${HOME}/.bash_profile
+      mv bash_profile ~/.bash_profile
     fi
 
-    if [ -f "${HOME}/.gitignore_global" ]; then
+    if [ ! -f "~/.gitignore_global" ]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/gitignore_global
-      mv bash_profile ${HOME}/.gitignore_global
+      mv bash_profile ~/.gitignore_global
     fi
 
-    if [ -f "${HOME}/.bash_profile.local" ]; then
+    if [ ! -f "~/.bash_profile.local" ]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/bash_profile.local
-      mv bash_profile ${HOME}/.bash_profile.local
+      mv bash_profile ~/.bash_profile.local
     fi
 
     osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…' >/dev/null;
