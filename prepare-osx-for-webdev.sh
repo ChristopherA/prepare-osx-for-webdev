@@ -325,9 +325,10 @@ if [[ `uname` == 'Darwin' ]]; then
     if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/${TERM_PROFILE}.terminal
     	open "${HOME}/${TERM_PROFILE}.terminal";
-    	sleep 1; # Wait a bit to make sure the theme is loaded
+    	sleep 5; # Wait a bit to make sure the theme is loaded
     	defaults write com.apple.terminal 'Default Window Settings' -string "${TERM_PROFILE}";
     	defaults write com.apple.terminal 'Startup Window Settings' -string "${TERM_PROFILE}";
+      rm "${HOME}/${TERM_PROFILE}.terminal";
     fi;
 
  else
