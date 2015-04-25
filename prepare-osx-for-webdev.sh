@@ -387,11 +387,11 @@ if [[ `uname` == 'Darwin' ]]; then
       mv bash_profile ~/.bash_profile.local
     fi
 
-    osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…' >/dev/null;
+    osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…' >/dev/null
 
     open ${HOME}/.bash_profile.local
 
-    osascript -e 'Tell application "System Events" to display alert "Installation is complete!' >/dev/null;
+    osascript -e 'Tell application "System Events" to display alert "Installation is complete!' >/dev/null
 
  else
    echo "This script only supports OSX 10.9 Mavericks or better! Exiting..."
