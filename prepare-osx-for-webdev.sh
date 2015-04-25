@@ -88,9 +88,6 @@ if [[ `uname` == 'Darwin' ]]; then
 
     osascript -e 'tell application "Terminal" to activate'
 
-    # Keep-alive: update existing `sudo` time stamp until script has finished
-    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
   # Define some variables...
     tmp_file=".softwareupdate.$$"
     reboot=""
