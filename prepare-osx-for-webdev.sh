@@ -25,10 +25,6 @@ SCRIPT_DEBUG=true
 
 BIN="/usr/local/bin"
 
-# Ask for the administrator password upfront
-echo -e "\nUpdating OSX system software and developer tools.\nYour administrator password will be required. \nOnly enter password if you trust the source of this script!"
-sudo -v
-
 # What kind of OS are we running?
 
 echo -e "\nChecking System -- \c"
@@ -46,6 +42,12 @@ if [[ `uname` == 'Darwin' ]]; then
   # on 10.9+, we can leverage Software Update to get the latest CLI tools
   if [ "$OSX_VERS_FIRST" -ge 9 ];
   then
+
+    # Warn the user before running this script
+    echo -e "\nUpdating OSX system software and developer tools.\nYour administrator password will be required. \nOnly enter password if you trust the source of this script!"
+
+    # Ask for the administrator password upfront
+    sudo -v
 
     # Define some variables...
     tmp_file=".softwareupdate.$$"
