@@ -372,6 +372,27 @@ if [[ `uname` == 'Darwin' ]]; then
       rm "${HOME}/${TERM_PROFILE}.terminal";
     fi;
 
+    if [ -f "${HOME}/.bash_profile" ]; then
+      wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/bash_profile
+      mv bash_profile ${HOME}/.bash_profile
+    fi
+
+    if [ -f "${HOME}/.gitignore_global" ]; then
+      wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/gitignore_global
+      mv bash_profile ${HOME}/.gitignore_global
+    fi
+
+    if [ -f "${HOME}/.bash_profile.local" ]; then
+      wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/bash_profile.local
+      mv bash_profile ${HOME}/.bash_profile.local
+    fi
+
+    osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…' >/dev/null;
+
+    open ${HOME}/.bash_profile.local
+
+    osascript -e 'Tell application "System Events" to display alert "Installation is complete!' >/dev/null;
+
  else
    echo "This script only supports OSX 10.9 Mavericks or better! Exiting..."
  fi
@@ -380,4 +401,4 @@ else
   echo "We are not running on a Mac! Install scripts for non-Macs are a work-in-progress."
 fi
 
-echo -e "\nFinished installation.\n"
+echo -e "\nScript finished.\n"
