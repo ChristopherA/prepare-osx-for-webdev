@@ -224,6 +224,7 @@ if [[ `uname` == 'Darwin' ]]; then
     brew install bash-completion # http://bash-completion.alioth.debian.org
     brew install bash-git-prompt # https://github.com/magicmonty/bash-git-prompt
     brew install grc # http://korpus.juls.savba.sk/~garabik/software/grc.html
+    brew install wget # https://www.gnu.org/software/wget/
 
     # Install web development code
     # brew install python # use built-in python for now
@@ -325,8 +326,8 @@ if [[ `uname` == 'Darwin' ]]; then
     TERM_PROFILE='solarized-dark';
     CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
     if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
-      curl https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/${TERM_PROFILE}.terminal > ~/${TERM_PROFILE}.terminal
-    	open "${HOME}/.dotfiles/install/osxterminal/${TERM_PROFILE}.terminal";
+      wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/${TERM_PROFILE}.terminal
+    	open "${HOME}/${TERM_PROFILE}.terminal";
     	sleep 1; # Wait a bit to make sure the theme is loaded
     	defaults write com.apple.terminal 'Default Window Settings' -string "${TERM_PROFILE}";
     	defaults write com.apple.terminal 'Startup Window Settings' -string "${TERM_PROFILE}";
