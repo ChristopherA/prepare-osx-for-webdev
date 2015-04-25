@@ -319,6 +319,19 @@ if [[ `uname` == 'Darwin' ]]; then
     # Repair disk permissions
     sudo diskutil repairPermissions /
 
+    # Install Solarized Terminal Settings
+
+    # Use a modified version of the Solarized Dark theme by default in Terminal.app
+    TERM_PROFILE='solarized-dark';
+    CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
+    if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
+      curl https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/${TERM_PROFILE}.terminal > ~/${TERM_PROFILE}.terminal
+    	open "${HOME}/.dotfiles/install/osxterminal/${TERM_PROFILE}.terminal";
+    	sleep 1; # Wait a bit to make sure the theme is loaded
+    	defaults write com.apple.terminal 'Default Window Settings' -string "${TERM_PROFILE}";
+    	defaults write com.apple.terminal 'Startup Window Settings' -string "${TERM_PROFILE}";
+    fi;
+
  else
    echo "This script only supports OSX 10.9 Mavericks or better! Exiting..."
  fi
