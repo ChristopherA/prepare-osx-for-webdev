@@ -320,7 +320,7 @@ if [[ `uname` == 'Darwin' ]]; then
     # Install Solarized Terminal Settings
 
     # Use a modified version of the Solarized Dark theme by default in Terminal.app
-    TERM_PROFILE='solarized-dark';
+    TERM_PROFILE='Solarized-Dark';
     CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
     if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/${TERM_PROFILE}.terminal
