@@ -257,8 +257,8 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Development Tools
     brew cask install atom #http://atom.io
-    brew cask install github #https://mac.github.com
-    brew cask install java # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+    brew cask install github # https://mac.github.com
+    # brew cask install java # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
     # Brew & Cask Cleanup
 
