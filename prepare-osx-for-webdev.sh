@@ -26,7 +26,7 @@ SCRIPT_DEBUG=true
 BIN="/usr/local/bin"
 
 # Ask for the administrator password upfront
-echo -e "\nUpdating OSX system software and developer tools. Your administrator password will be required. Only enter password if you trust the source of this script!"
+echo -e "\nUpdating OSX system software and developer tools.\nYour administrator password will be required. \nOnly enter password if you trust the source of this script!"
 sudo -v
 
 # What kind of OS are we running?
@@ -53,7 +53,7 @@ if [[ `uname` == 'Darwin' ]]; then
     found_updates=""
 
     echo -e "\n  Checking Apple Software Update Server for available updates,\n  Please be patient. This process may take a while to complete... \c"
-    sudo /usr/sbin/softwareupdate -l &> $tmp_file
+    sudo /usr/sbin/softwareupdate -l # &> $tmp_file
     wait
 
     echo -e "\n"
@@ -75,14 +75,14 @@ if [[ `uname` == 'Darwin' ]]; then
         then
           echo "    Updates found, but no reboot required. Installing now."
           echo "    Please be patient. This process may take a while to complete."
-          sudo /usr/sbin/softwareupdate -ia
+          sudo /usr/sbin/softwareupdate -ia # &> $tmp_file
           wait
           echo -e "\n  Finished with all Apple Software Update installations."
         else
           echo "    Updates found, reboot required. Installing now."
           echo "    Please be patient. This process may take a while to complete."
           echo -e "    Once complete, this machine will automatically restart.\n"
-          sudo /usr/sbin/softwareupdate -ia
+          sudo /usr/sbin/softwareupdate -ia # &> $tmp_file
           wait
           echo -e "    Finished with all Apple Software Update installations."
         fi
@@ -113,7 +113,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
       touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 
-      sudo /usr/sbin/softwareupdate -ia
+      sudo /usr/sbin/softwareupdate -ia # &> $tmp_file
       wait
 
       /bin/rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
