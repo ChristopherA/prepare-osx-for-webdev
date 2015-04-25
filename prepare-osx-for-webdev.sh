@@ -389,7 +389,7 @@ if [[ `uname` == 'Darwin' ]]; then
       mv ./bash_profile.local ~/.bash_profile.local;
       echo "New ~/.bash_profile.local created.";
 
-      osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…"';
+      osascript -e 'Tell application "System Events" to display alert "Edit your .bash_profile.local with your own Git credentials…"' >/dev/null
       atom ~/.bash_profile.local;
     fi
 
