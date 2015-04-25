@@ -397,7 +397,7 @@ if [[ `uname` == 'Darwin' ]]; then
     fi
 
     osascript -e 'Tell application "System Events" to activate' >/dev/null
-    osascript -e 'Tell application "System Events" to display alert "Installation is complete!' >/dev/null
+    osascript -e 'Tell application "System Events" to display alert "Installation is complete!"' >/dev/null
 
  else
    echo "This script only supports OSX 10.9 Mavericks or better! Exiting..."
