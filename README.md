@@ -2,17 +2,21 @@ Prepare OSX for WebDev
 ======================
 
 Script to prepare Mac OSX with basic command-line tools and for web development:
-    https://github.com/ChristopherA/prepare-osx-for-webdev
+
+> https://github.com/ChristopherA/prepare-osx-for-webdev
 
 This installer basically automates parts **2 - Preparation and Installation"** &
 **"3 - Customize Your Environment"** from the _Introduction to the Mac Command Line_ tutorial at:
-    https://github.com/ChristopherA/intro-mac-command-line
+
+> https://github.com/ChristopherA/intro-mac-command-line
 
 Originally based on `allosxupdates.sh` from Christopher Allen' dotfiles:
-    https://github.com/ChristopherA/dotfiles/blob/master/install/allosxupdates.sh
+
+> https://github.com/ChristopherA/dotfiles/blob/master/install/allosxupdates.sh
 
 Modified to install only basic command-line utilities and web development packages, such as node, without dependencies on other files. If you want a more sophisticated Mac command-line web development environment, see:
-    https://github.com/ChristopherA/dotfiles/
+
+> https://github.com/ChristopherA/dotfiles/
 
 Installation
 ------------
