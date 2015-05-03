@@ -24,7 +24,7 @@ Execute this command via the Terminal app's command line interface (`command` + 
 
 WARNING: Be careful about using `curl` piped `|` to `bash` or any other shell as it can compromise your system. Only execute if you trust the source!
 
-After installation, you should edit the ~/.bash_profile.local` file with your own Github credentials. Change the GIT_AUTHOR_NAME and GIT_AUTHOR_EMAIL to your name and Github account.
+After installation, you should edit the `~/.bash_profile.local` file with your own Github credentials. Change the `GIT_AUTHOR_NAME` and `GIT_AUTHOR_EMAIL` to your name and Github account.
 
 If you want to use the suggested _Solarized Dark_ theme for the Terminal app you'll need to change the defaults in Preferences `command + ,`. Under the _General_ tab, select "On startup, open New Window with profile: solarized-dark", and under the _Profiles_ tab, select `solarized-dark` and press the 'Default' button.
 
