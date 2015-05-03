@@ -39,6 +39,9 @@ if [[ `uname` == 'Darwin' ]]; then
 
   echo "we are installing on a Mac under OSX $OSX_VERS."
 
+  # Make sure we are in the user's home directory
+  cd ~
+
   # on 10.9+, we can leverage Software Update to get the latest CLI tools
   if [ "$OSX_VERS_FIRST" -ge 9 ];
   then
@@ -366,8 +369,9 @@ if [[ `uname` == 'Darwin' ]]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/solarized-dark.terminal
     	open "~/solarized-dark.terminal";
     	sleep 5; # Wait a bit to make sure the theme is loaded
-    	defaults write com.apple.terminal 'Default Window Settings' -string "solarized-dark";
-    	defaults write com.apple.terminal 'Startup Window Settings' -string "solarized-dark";
+        # !!! NOTE THE FOLLOWING DOES NOT WORK IN 10.10
+      	# defaults write com.apple.terminal 'Default Window Settings' -string "solarized-dark";
+      	# defaults write com.apple.terminal 'Startup Window Settings' -string "solarized-dark";
       rm "~/solarized-dark.terminal";
     fi;
 
