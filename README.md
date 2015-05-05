@@ -20,7 +20,7 @@ If not a fresh install, you should at least need to upgrade your Mac to OS X 10.
 
 Execute this command via the Terminal app's command line interface (`command` + `space` + `terminal`):
 
-`curl -L https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/prepare-osx-for-webdev.sh | bash`
+`curl -L https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/prepare-osx.sh | bash`
 
 WARNING: Be careful about using `curl` piped `|` to `bash` or any other shell as it can compromise your system. Only execute if you trust the source!
 
