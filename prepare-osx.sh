@@ -9,7 +9,7 @@
 
 # Execute on a new machine via:
 
-# $ curl -L https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/prepare-osx-for-webdev.sh | bash
+# $ curl -L https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/prepare-osx.sh | bash
 
 # WARNING: Be careful about using `curl` piped `|` to bash or any other shell
 # as it can compromise your system. Only execute if you trust the source!
