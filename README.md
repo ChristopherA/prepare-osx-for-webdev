@@ -26,7 +26,7 @@ WARNING: Be careful about using `curl` piped `|` to `bash` or any other shell as
 
 After installation, you should edit the `~/.bash_profile.local` file with your own Github credentials. Change the `GIT_AUTHOR_NAME` and `GIT_AUTHOR_EMAIL` to your name and Github account.
 
-If you want to use the suggested _Solarized Dark_ theme for the Terminal app you'll need to change the defaults in Preferences `command + ,`. Under the _General_ tab, select "On startup, open New Window with profile: solarized-dark", and under the _Profiles_ tab, select `solarized-dark` and press the 'Default' button.
+If you want to use the suggested _Solarized Dark_ theme for the Terminal app you'll need to change the defaults in Preferences `command + ,`. Under the _Profiles_ tab, select `solarized-dark` and press the 'Default' button.
 
 If this script has not been run on a fresh install of Mac OS X 10.10 "Yosemite", after this script is complete you'll need to look for any warnings in the Terminal output, in particular from the `brew doctor` command. If there were any errors, `brew doctor` will tell you how to fix them. If what it suggests to fix the problem doesn't work, I find that almost every problem that has come up is a question on the website [StackOverflow](http://stackoverflow.com/) so search for your solution there.
 
