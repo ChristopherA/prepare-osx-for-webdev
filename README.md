@@ -1,7 +1,8 @@
-Prepare OSX for WebDev
+
+Prepare OSX for WebDev (macOS Sierra 10.12)
 ======================
 
-Script to prepare Mac OSX with basic command-line tools and for web development:
+Script to prepare macOS Sierra 10.12 with basic command-line tools and for web development:
 
 > https://github.com/ChristopherA/prepare-osx-for-webdev
 
@@ -11,12 +12,13 @@ Originally based on `allosxupdates.sh` from Christopher Allen's .dotfiles -- mod
 
 > https://github.com/ChristopherA/dotfiles/blob/master/install/allosxupdates.sh
 
+
 Installation
 ------------
 
-Ideally install these development tools on a fresh install of Mac OS X 10.10 "Yosemite" rather than on an update from a previous version of Mac OS X.
+Ideally install these development tools on a fresh install of macOS "Sierra" 10.2 rather than on an update from a previous version of Mac OS X. This script has been tested in the past with both Mac OS X  "Yosemite" 10.10 and "El Capitan" 10.11 but backwards compatibility is not guaranteed.
 
-If not a fresh install, you should at least need to upgrade your Mac to OS X 10.10. If you have ever installed node, python, go or other web development tools from a .dmg installer, you'll need to uninstall those tools first. This script will reinstall them using [HomeBrew](brew.sh).
+If not a fresh install, you should at least need to upgrade your Mac to OS X 10.12. If you have ever installed node, python, go or other web development tools from a .dmg installer, you'll need to uninstall those tools first. This script will reinstall them using [HomeBrew](brew.sh).
 
 Execute this command via the Terminal app's command line interface (`command` + `space` + `terminal`):
 
@@ -28,13 +30,14 @@ After installation, you should edit the `~/.bash_profile.local` file with your o
 
 If you want to use the suggested _Solarized Dark_ theme for the Terminal app you'll need to change the defaults in Preferences `command + ,`. Under the _Profiles_ tab, select `solarized-dark` and press the 'Default' button.
 
-If this script has not been run on a fresh install of Mac OS X 10.10 "Yosemite", after this script is complete you'll need to look for any warnings in the Terminal output, in particular from the `brew doctor` command. If there were any errors, `brew doctor` will tell you how to fix them. If what it suggests to fix the problem doesn't work, I find that almost every problem that has come up is a question on the website [StackOverflow](http://stackoverflow.com/) so search for your solution there.
+If this script has not been run on a fresh install of macOS "Sierra" 10.12, after this script is complete you'll need to look for any warnings in the Terminal output, in particular from the `brew doctor` command. If there were any errors, `brew doctor` will tell you how to fix them. If what it suggests to fix the problem doesn't work, I find that almost every problem that has come up is a question on the website [StackOverflow](http://stackoverflow.com/) so search for your solution there.
 
 It is safe to run `brew doctor` or run this entire script multiple times.
 
 If you have an existing `~/.bash_profile` you will need to manually edit this files to set environment variables as per:
 
 > https://github.com/ChristopherA/prepare-osx-for-webdev/blob/master/bash_profile.local
+
 
 What It Does
 ------------
@@ -44,8 +47,8 @@ The script basically automates parts **2 - Preparation and Installation"** &
 
 > https://github.com/ChristopherA/intro-mac-command-line
 
-* Installs all Mac OSX System Updates
-* Install current "OSX Command Line Tools"
+* Installs all macOS System Updates
+* Install current macOS "Command Line Tools"
 * Installs Homebrew (command line app package tool) http://brew.sh
 * Brew Installs:
   * git # http://git-scm.com
@@ -59,7 +62,7 @@ The script basically automates parts **2 - Preparation and Installation"** &
 * Installs Caskroom (Mac app package tool) # http://caskroom.io
 * Cask Installs:
   * atom # http://atom.io
-  * github # https://mac.github.com
+  * github-desktop # https://mac.github.com
 * Configures the Mac Terminal
   * Use Solarized theme
 * If they don't already exist, creates:
@@ -70,3 +73,4 @@ The script basically automates parts **2 - Preparation and Installation"** &
 If you want a more sophisticated Mac command-line web development environment, see:
 
 > https://github.com/ChristopherA/dotfiles/
+
