@@ -303,63 +303,59 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Brew & Cask Cleanup
 
-      # Symlink any .app-style brews applications locally to ~/Applications
+    # Symlink any .app-style brews applications locally to ~/Applications
 
-      if $SCRIPT_DEBUG; then echo "...Symlink any .app-style brews."; fi
+    if $SCRIPT_DEBUG; then echo "...Symlink any .app-style brews."; fi
 
-      if $SCRIPT_DEBUG
-        then
-          brew linkapps --local
-        else
-          brew linkapps --local > /dev/null
-      fi
+    if $SCRIPT_DEBUG
+      then
+        brew linkapps --local
+      else
+        brew linkapps --local > /dev/null
+    fi
 
 
-      # Cleanup old Homebrew formula
+    # Cleanup old Homebrew formula
 
-      if $SCRIPT_DEBUG; then echo "...Cleanup old brew formula."; fi
+    if $SCRIPT_DEBUG; then echo "...Cleanup old brew formula."; fi
 
-      if $SCRIPT_DEBUG
-        then
-          brew cleanup
-        else
-          brew cleanup > /dev/null
-      fi
+    if $SCRIPT_DEBUG
+      then
+        brew cleanup
+      else
+        brew cleanup > /dev/null
+    fi
 
-      # Prune dead Homebrew symlinks
+    # Prune dead Homebrew symlinks
 
-      if $SCRIPT_DEBUG; then echo "...Prune dead symlinks."; fi
+    if $SCRIPT_DEBUG; then echo "...Prune dead symlinks."; fi
 
-      if $SCRIPT_DEBUG
-        then
-          brew prune
-        else
-          brew prune > /dev/null
-      fi
+    if $SCRIPT_DEBUG
+      then
+        brew prune
+      else
+        brew prune > /dev/null
+    fi
 
-      # Cask cleanup
-      if $SCRIPT_DEBUG; then echo "...Cleanup Cask caches."; fi
+    # Cask cleanup
+    if $SCRIPT_DEBUG; then echo "...Cleanup Cask caches."; fi
 
-      if $SCRIPT_DEBUG
-        then
-          brew cask cleanup
-        else
-          brew cask cleanup > /dev/null
-      fi
+    if $SCRIPT_DEBUG
+      then
+        brew cask cleanup
+      else
+        brew cask cleanup > /dev/null
+    fi
 
     # Run maintenance scripts
-    # The whathis database, used by whatis and apropos, is only generated weekly,
-    # so run it after changing commands.
 
-    sudo periodic daily weekly monthly
+    echo -e "\n  Running maintenance scripts."
 
-    # Update the locate database. This will happen in the background and can
+    # The locate and whathis databases, also used by apropos, is only generated weekly,
+    # so run it after changing commands. This will happen in the background and can
     # take some time to generate the first time.
 
-    sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
-
-    # Repair disk permissions
-    sudo diskutil repairPermissions /
+    sudo periodic daily weekly monthly
 
     # Install Solarized Terminal Settings
 
