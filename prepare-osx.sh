@@ -1,27 +1,35 @@
 #!/bin/bash
 
-# Originally from Christopher Allen's dotfiles
-#   https://github.com/ChristopherA/dotfiles/blob/master/install/allosxupdates.sh
-
-# Modified to only install basic command-line utilities and webdev files,
-# such as python and node, without dependencies on other install files
+# Prepares a new macOS computer for web development. Updates to current version
+# of macOS, installs basic command-line utilities without installing xcode,
+# adds essential command line tools, git source code control, and key dotfiles,
+# and otherwise prepares a new system for webdev apps, such as java, python
+# and node, without dependencies on other install files
 #   https://github.com/ChristopherA/prepare-osx-for-webdev
+
+# Installation of java, python and node are currently commented out, uncomment
+# if you need them, or for each tool `brew install *tool*`
 
 # Execute on a new machine via:
 
 # $ curl -L https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/prepare-osx.sh | bash
 
-# WARNING: Be careful about using `curl` piped `|` to bash or any other shell
+# Originally inspired from Christopher Allen's dotfiles
+#   https://github.com/ChristopherA/dotfiles/blob/master/install/allosxupdates.sh
+
+# 2016-09-21 Confirmed working with macOS Sierra 10.12.0
+
+# WARNING: Be careful about using `curl` piped `|` to `bash` or any other shell
 # as it can compromise your system. Only execute if you trust the source!
 
 # TBD: It is possible that after command line utilities are installed that
 # additional updates may be required, even though previous test resulted in
 # a report of no updates required. For now I'm forcing one last update. To
-# to properly requires refactoring this script and how it does update checks,
+# do properly requires refactoring this script and how it does update checks,
 # probably some form of 'until [ $found_updates -eq 0 ] do xxxx done'
 
 # TBD: There should be some way if a restart is required to install a
-# script to automatically start this script again, until found_updates() is
+# script to automatically starts this script again, until found_updates() is
 # false. I've had too many false starts on this for it to be a priority.
 
 # Script Debugger
@@ -284,7 +292,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Install web development code
     # brew install python # use built-in python for now
-    brew install node # https://nodejs.org/
+    # brew install node # https://nodejs.org/
 
     if $SCRIPT_DEBUG; then echo "...Installing Cask."; fi
 
@@ -313,7 +321,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Development Tools
     brew cask install atom #http://atom.io
-    brew cask install github # https://mac.github.com
+    brew install Caskroom/cask/github-desktop # https://mac.github.com
     # brew cask install java # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
     # Brew & Cask Cleanup
@@ -380,9 +388,9 @@ if [[ `uname` == 'Darwin' ]]; then
       wget https://raw.githubusercontent.com/ChristopherA/prepare-osx-for-webdev/master/solarized-dark.terminal
     	open ~/solarized-dark.terminal;
     	sleep 5; # Wait a bit to make sure the theme is loaded
-        # !!! NOTE THE FOLLOWING DOES NOT WORK IN 10.10
-      	# defaults write com.apple.terminal 'Default Window Settings' -string "solarized-dark";
-      	# defaults write com.apple.terminal 'Startup Window Settings' -string "solarized-dark";
+      # !!! NOTE THE FOLLOWING DIDN"T NOT WORK IN 10.10 BUT DOES IN 10.12
+      defaults write com.apple.terminal 'Default Window Settings' -string "solarized-dark";
+      defaults write com.apple.terminal 'Startup Window Settings' -string "solarized-dark";
       rm ~/solarized-dark.terminal;
     fi;
 
