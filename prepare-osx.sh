@@ -240,9 +240,9 @@ if [[ `uname` == 'Darwin' ]]; then
 
       if $SCRIPT_DEBUG
         then
-          brew upgrade --all
+          brew upgrade
         else
-          brew upgrade --all > /dev/null
+          brew upgrade > /dev/null
       fi
 
       # Symlink any .app-style brews applications locally to ~/Applications
