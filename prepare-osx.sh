@@ -271,12 +271,14 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Important early Brew installs
     brew install git # http://git-scm.com
+    brew install bash-completion # http://bash-completion.alioth.debian.org
+    brew install wget # https://www.gnu.org/software/wget/
+
+    # Useful other bash or git related tools
     brew install git-extras # https://github.com/visionmedia/git-extras
     brew install hub # https://hub.github.com
-    brew install bash-completion # http://bash-completion.alioth.debian.org
-    brew install bash-git-prompt # https://github.com/magicmonty/bash-git-prompt
-    brew install grc # http://korpus.juls.savba.sk/~garabik/software/grc.html
-    brew install wget # https://www.gnu.org/software/wget/
+    #brew install grc # http://korpus.juls.savba.sk/~garabik/software/grc.html
+    #brew install bash-git-prompt # https://github.com/magicmonty/bash-git-prompt
 
     # Install web development code
     # brew install python # use built-in python for now
