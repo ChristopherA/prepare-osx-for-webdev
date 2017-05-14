@@ -282,30 +282,16 @@ if [[ `uname` == 'Darwin' ]]; then
     # brew install python # use built-in python for now
     # brew install node # https://nodejs.org/
 
-    if $SCRIPT_DEBUG; then echo "...Installing Cask."; fi
+    if $SCRIPT_DEBUG; then echo "...Tapping Brew Cask."; fi
 
-    # Check for Cask instalation
-
-    if $SCRIPT_DEBUG; then echo -e "...Checking if Brew Cask is installed."; fi
-
-    if ! brew cask &> /dev/null
+    if $SCRIPT_DEBUG
       then
-        if $SCRIPT_DEBUG
-          then
-            echo "...Cask not installed. Installing."
-            brew install caskroom/cask/brew-cask # http://caskroom.io
-          else
-            brew install caskroom/cask/brew-cask > /dev/null
-        fi
-
-        if $SCRIPT_DEBUG; then echo -e "...Finished installing Cask."; fi
-
+        brew tap caskroom/cask
       else
-        if $SCRIPT_DEBUG; then echo -e "Cask already installed."; fi
-
+        brew tap caskroom/cask > /dev/null
     fi
 
-    if $SCRIPT_DEBUG; then echo "...Cask installed."; fi
+    if $SCRIPT_DEBUG; then echo "...Brew Cask tapped."; fi
 
     # Development Tools
     brew cask install atom #http://atom.io
