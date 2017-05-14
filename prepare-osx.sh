@@ -245,18 +245,6 @@ if [[ `uname` == 'Darwin' ]]; then
           brew upgrade > /dev/null
       fi
 
-      # Symlink any .app-style brews applications locally to ~/Applications
-
-      if $SCRIPT_DEBUG; then echo "...Symlink any .app-style brews."; fi
-
-      if $SCRIPT_DEBUG
-        then
-          brew linkapps --local
-        else
-          brew linkapps --local > /dev/null
-      fi
-
-
       # Cleanup old Homebrew formula
 
       if $SCRIPT_DEBUG; then echo "...Cleanup old brew formula."; fi
