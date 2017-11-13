@@ -16,9 +16,9 @@ Originally based on `allosxupdates.sh` from Christopher Allen's .dotfiles -- mod
 Installation
 ------------
 
-Ideally install these development tools on a fresh install of macOS "Sierra" 10.2 rather than on an update from a previous version of Mac OS X. This script has been tested in the past with both Mac OS X  "Yosemite" 10.10 and "El Capitan" 10.11 but backwards compatibility is not guaranteed.
+Ideally install these development tools on a fresh install of macOS "Sierra" 10.3 rather than on an update from a previous version of Mac OS X. This script has been tested in the past with both Mac OS X  "Yosemite" 10.10, "El Capitan" 10.11 and "Sierra" 10.12 but backwards compatibility is not guaranteed.
 
-If not a fresh install, you should at least need to upgrade your Mac to OS X 10.12. If you have ever installed node, python, go or other web development tools from a .dmg installer, you'll need to uninstall those tools first. This script will reinstall them using [HomeBrew](brew.sh).
+If not a fresh install, you should at least need to upgrade your Mac to OS X 10.13. If you have ever installed node, python, go or other web development tools from a .dmg installer, you'll need to uninstall those tools first. This script will reinstall them using [HomeBrew](brew.sh).
 
 Execute this command via the Terminal app's command line interface (`command` + `space` + `terminal`):
 
@@ -58,14 +58,13 @@ The script basically automates parts **2 - Preparation and Installation"** &
   * bash-git-prompt # https://github.com/magicmonty/bash-git-prompt
   * grc # http://korpus.juls.savba.sk/~garabik/software/grc.html
   * wget # https://www.gnu.org/software/wget/
-  * node # https://nodejs.org/
 * Installs Caskroom (Mac app package tool) # http://caskroom.io
 * Cask Installs:
   * atom # http://atom.io
-  * github-desktop # https://mac.github.com
+  * github # https://mac.github.com
 * Configures the Mac Terminal
   * Use Solarized theme
-* If they don't already exist, creates:
+* If they don't already exist, creates a minimal:
   * `.bash_profile`
   * `.bash_profile.local`
   * `.gitignore_global`
@@ -73,4 +72,3 @@ The script basically automates parts **2 - Preparation and Installation"** &
 If you want a more sophisticated Mac command-line web development environment, see:
 
 > https://github.com/ChristopherA/dotfiles/
-

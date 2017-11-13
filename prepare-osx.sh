@@ -17,6 +17,7 @@
 # Originally inspired from Christopher Allen's dotfiles
 #   https://github.com/ChristopherA/dotfiles/blob/master/install/allosxupdates.sh
 
+# 2017-11-12 Confirmed working with macOS Sierra 10.13.1
 # 2016-09-21 Confirmed working with macOS Sierra 10.12.0
 
 # WARNING: Be careful about using `curl` piped `|` to `bash` or any other shell
@@ -297,7 +298,7 @@ if [[ `uname` == 'Darwin' ]]; then
 
     # Development Tools
     brew cask install atom #http://atom.io
-    brew install Caskroom/cask/github-desktop # https://mac.github.com
+    brew cask install github # https://mac.github.com
     # brew cask install java # http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
     # Brew & Cask Cleanup
